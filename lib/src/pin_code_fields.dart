@@ -213,12 +213,13 @@ class PinCodeTextField extends StatefulWidget {
 
   /// Builds separator children
   final IndexedWidgetBuilder? separatorBuilder;
-
+  final TextDirection? fieldsDirection;
   PinCodeTextField({
     Key? key,
     required this.appContext,
     required this.length,
     this.controller,
+    this.fieldsDirection,
     this.obscureText = false,
     this.obscuringCharacter = '●',
     this.obscuringWidget,
@@ -866,6 +867,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                     : null,
                 child: Row(
                   mainAxisAlignment: widget.mainAxisAlignment,
+                  textDirection: widget.fieldsDirection,
                   children: _generateFields(),
                 ),
               ),
